@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ServiceHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex">
+        <!-- Sidebar -->
+        <div class="bg-indigo-800 text-white w-64 space-y-6 py-7 px-2 absolute inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 transition duration-200 ease-in-out" id="sidebar">
+            <div class="flex items-center space-x-2 px-4">
+                <i class="fas fa-hands-helping text-2xl"></i>
+                <span class="text-2xl font-extrabold">ServiceHub</span>
+            </div>
+            <nav>
+                <a href="dashboard.html" class="flex items-center px-4 py-2 text-indigo-100 bg-indigo-900 rounded">
+                    <i class="fas fa-home mr-3"></i>
+                    Dashboard
+                </a>
+                <a href="browse.html" class="flex items-center px-4 py-2 text-indigo-100 hover:bg-indigo-700 rounded">
+                    <i class="fas fa-search mr-3"></i>
+                    Browse Services
+                </a>
+                <a href="bookings.html" class="flex items-center px-4 py-2 text-indigo-100 hover:bg-indigo-700 rounded">
+                    <i class="far fa-calendar-alt mr-3"></i>
+                    My Bookings
+                </a>
+                <a href="profile.html" class="flex items-center px-4 py-2 text-indigo-100 hover:bg-indigo-700 rounded">
+                    <i class="far fa-user mr-3"></i>
+                    My Profile
+                </a>
+                <a href="#" class="flex items-center px-4 py-2 text-indigo-100 hover:bg-indigo-700 rounded" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt mr-3"></i>
+                    Sign Out
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Navigation -->
+            <header class="bg-white shadow-sm">
+                <div class="flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+                    <div class="flex items-center">
+                        <button class="text-gray-500 focus:outline-none md:hidden" id="menuBtn">
+                            <i class="fas fa-bars h-6 w-6"></i>
+                        </button>
+                        <h1 class="ml-3 text-xl font-semibold text-gray-900">Dashboard</h1>
+                    </div>
+                    <div class="flex items-center space-x-4">
+                        <button class="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none">
+                            <i class="far fa-bell h-6 w-6"></i>
+                        </button>
+                        <div class="relative">
+                            <button class="flex items-center text-sm rounded-full focus:outline-none" id="user-menu">
+                                <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User avatar">
+                                <span class="ml-2 text-gray-700">John Doe</span>
+                                <i class="ml-1 fas fa-chevron-down text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+                <div class="max-w-7xl mx-auto">
+                    <!-- Welcome Banner -->
+                    <div class="bg-white shadow rounded-lg mb-6">
+                        <div class="px-4 py-5 sm:p-6">
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                                <div class="flex-1 min-w-0">
+                                    <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:text-3xl sm:truncate">
+                                        Welcome back, John!
+                                    </h2>
+                                    <p class="mt-1 text-sm text-gray-500">
+                                        Here's what's happening with your services today.
+                                    </p>
+                                </div>
+                                <div class="mt-4 flex-shrink-0 flex md:mt-0 md:ml-4">
+                                    <a href="browse.html" class="ml-3 inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                                        <i class="fas fa-plus -ml-1 mr-2 h-5 w-5"></i>
+                                        New Service Request
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Cards -->
+                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 mb-6">
+                        <!-- Active Bookings -->
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="p-5">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-indigo-500 rounded-md p-3">
+                                        <i class="fas fa-calendar-check text-white text-xl"></i>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Active Bookings
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    3
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-5 py-3">
+                                <div class="text-sm">
+                                    <a href="bookings.html" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                        View all
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Requests -->
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="p-5">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-yellow-500 rounded-md p-3">
+                                        <i class="fas fa-clock text-white text-xl"></i>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Pending Requests
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    1
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-5 py-3">
+                                <div class="text-sm">
+                                    <a href="bookings.html?status=pending" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                        View all
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Completed Services -->
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="p-5">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-green-500 rounded-md p-3">
+                                        <i class="fas fa-check-circle text-white text-xl"></i>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Completed Services
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    12
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-5 py-3">
+                                <div class="text-sm">
+                                    <a href="bookings.html?status=completed" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                        View history
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Total Spent -->
+                        <div class="bg-white overflow-hidden shadow rounded-lg">
+                            <div class="p-5">
+                                <div class="flex items-center">
+                                    <div class="flex-shrink-0 bg-purple-500 rounded-md p-3">
+                                        <i class="fas fa-dollar-sign text-white text-xl"></i>
+                                    </div>
+                                    <div class="ml-5 w-0 flex-1">
+                                        <dl>
+                                            <dt class="text-sm font-medium text-gray-500 truncate">
+                                                Total Spent
+                                            </dt>
+                                            <dd>
+                                                <div class="text-lg font-medium text-gray-900">
+                                                    $1,245
+                                                </div>
+                                            </dd>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-50 px-5 py-3">
+                                <div class="text-sm">
+                                    <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">
+                                        View invoices
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Bookings -->
+                    <div class="bg-white shadow rounded-lg mb-6">
+                        <div class="px-4 py-5 border-b border-gray-200 sm:px-6">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                                Upcoming Bookings
+                            </h3>
+                        </div>
+                        <div class="bg-white overflow-hidden">
+                            <ul class="divide-y divide-gray-200" id="upcomingBookings">
+                                <!-- Bookings will be loaded here via JavaScript -->
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 px-4 py-4 flex items-center justify-between border-t border-gray-200 sm:px-6">
+                            <div class="flex-1 flex justify-between sm:hidden">
+                                <a href="#" class="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Previous
+                                </a>
+                                <a href="#" class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                                    Next
+                                </a>
+                            </div>
+                            <div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+                                <div>
+                                    <p class="text-sm text-gray-700">
+                                        Showing
+                                        <span class="font-medium">1</span>
+                                        to
+                                        <span class="font-medium">3</span>
+                                        of
+                                        <span class="font-medium">8</span>
+                                        results
+                                    </p>
+                                </div>
+                                <div>
+                                    <nav class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                            <span class="sr-only">Previous</span>
+                                            <i class="fas fa-chevron-left h-5 w-5"></i>
+                                        </a>
+                                        <a href="#" aria-current="page" class="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                            1
+                                        </a>
+                                        <a href="#" class="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium">
+                                            2
+                                        </a>
+                                        <a href="#" class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50">
+                                            <span class="sr-only">Next</span>
+                                            <i class="fas fa-chevron-right h-5 w-5"></i>
+                                        </a>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../assets/js/customer.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('-translate-x-full');
+        });
+
+        // Sample data - in a real app, this would come from an API
+        const upcomingBookings = [
+            {
+                id: 1,
+                service: 'Home Cleaning',
+                provider: 'CleanPro Services',
+                date: 'Tomorrow, 10:00 AM - 12:00 PM',
+                status: 'Confirmed',
+                statusClass: 'bg-green-100 text-green-800'
+            },
+            {
+                id: 2,
+                service: 'Electrical Repair',
+                provider: 'QuickFix Electricians',
+                date: 'Friday, June 2, 2:00 PM - 4:00 PM',
+                status: 'Pending',
+                statusClass: 'bg-yellow-100 text-yellow-800'
+            },
+            {
+                id: 3,
+                service: 'Plumbing Service',
+                provider: 'PlumbRight Solutions',
+                date: 'Monday, June 5, 9:00 AM - 11:00 AM',
+                status: 'Confirmed',
+                statusClass: 'bg-green-100 text-green-800'
+            }
+        ];
+
+        // Render upcoming bookings
+        const bookingsList = document.getElementById('upcomingBookings');
+        bookingsList.innerHTML = upcomingBookings.map(booking => `
+            <li class="px-6 py-4">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 h-10 w-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                        <i class="fas ${getServiceIcon(booking.service)} text-indigo-600"></i>
+                    </div>
+                    <div class="ml-4">
+                        <div class="text-sm font-medium text-gray-900">
+                            ${booking.service}
+                        </div>
+                        <div class="text-sm text-gray-500">
+                            ${booking.date}
+                        </div>
+                    </div>
+                    <div class="ml-auto flex-shrink-0">
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${booking.statusClass}">
+                            ${booking.status}
+                        </span>
+                    </div>
+                </div>
+            </li>
+        `).join('');
+
+        function getServiceIcon(service) {
+            const icons = {
+                'Cleaning': 'fa-broom',
+                'Electrical': 'fa-bolt',
+                'Plumbing': 'fa-faucet',
+                'Tutoring': 'fa-graduation-cap',
+                'Repair': 'fa-tools'
+            };
+            
+            for (const [key, value] of Object.entries(icons)) {
+                if (service.toLowerCase().includes(key.toLowerCase())) {
+                    return value;
+                }
+            }
+            return 'fa-tools'; // default icon
+        }
+
+        // Handle logout
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // In a real app, you would make an API call to log the user out
+            // and then redirect to the login page
+            window.location.href = '../auth/login.html';
+        });
+    </script>
+</body>
+</html>
