@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>   
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Karigar - Local Services Marketplace</title>
@@ -13,7 +13,7 @@
     <style>
         /* Global Styles */
         :root {
-            --primary-color:#6c757d;
+            --primary-color: #0d6efd;
             --secondary-color: #6c757d;
             --light-color: #f8f9fa;
             --dark-color: #212529;
@@ -28,6 +28,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -106,7 +107,74 @@
             box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }
 
+        /* About Section */
+        #about {
+            padding: 5rem 0;
+            background-color: #fff;
+        }
+
+        .about-img {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-img:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-content h2 {
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .about-content p {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--secondary-color);
+            margin: 0;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
         /* Services Section */
+        #services {
+            padding: 5rem 0;
+            background-color: var(--light-color);
+        }
+
         .section-title {
             position: relative;
             margin-bottom: 3rem;
@@ -161,6 +229,11 @@
         }
 
         /* How It Works Section */
+        #how-it-works {
+            padding: 5rem 0;
+            background-color: #fff;
+        }
+
         .step-card {
             background: white;
             border-radius: 15px;
@@ -191,36 +264,10 @@
             box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
         }
 
-        /* Buttons */
-        .btn {
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary {
-            background-color: #ff6b6b;
-            border: none;
-        }
-
-        .btn-primary:hover {
-            background-color: #ff5252;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-        }
-
-        .btn-outline-light:hover {
-            color: var(--primary-color) !important;
-            background-color: #fff;
-        }
-
-        /* Testimonial Section */
-        .testimonial-section {
-            background-color: #f8f9fa;
+        /* Testimonials Section */
+        #testimonials {
             padding: 5rem 0;
+            background-color: var(--light-color);
         }
 
         .testimonial-card {
@@ -228,33 +275,47 @@
             border-radius: 15px;
             padding: 2rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            height: 100%;
-            position: relative;
+            margin: 1rem 0;
             transition: all 0.3s ease;
         }
 
-        .testimonial-card:before {
-            content: '\201C';
-            font-size: 5rem;
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            color: rgba(13, 110, 253, 0.1);
-            font-family: Georgia, serif;
-            line-height: 1;
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--primary-color);
+            padding: 3px;
+        }
+
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .testimonial-rating {
+            color: #ffc107;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
         .testimonial-text {
             font-style: italic;
+            color: var(--secondary-color);
             margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
 
         .testimonial-author {
             font-weight: 700;
             margin-bottom: 0.2rem;
-            color: var(--dark-color);
         }
 
         .testimonial-role {
@@ -262,44 +323,79 @@
             font-size: 0.9rem;
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
-            color: white;
+        /* Contact Section */
+        #contact {
             padding: 5rem 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            background-color: #fff;
         }
 
-        .cta-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://www.transparenttextures.com/patterns/diagmonds-light.png');
-            opacity: 0.1;
+        .contact-info {
+            margin-bottom: 2rem;
         }
 
-        .cta-title {
-            font-size: 2.5rem;
-            font-weight: 800;
+        .contact-info h3 {
             margin-bottom: 1.5rem;
-            position: relative;
+            font-weight: 700;
         }
 
-        .cta-description {
+        .contact-method {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(13, 110, 253, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary-color);
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            position: relative;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            font-weight: 600;
+        }
+
+        .contact-text p {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control, .form-select {
+            height: 50px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            padding: 0.5rem 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
         }
 
         /* Footer */
         footer {
-            background: #1a1a1a;
+            background-color: #1a1a1a;
             color: #fff;
             padding: 4rem 0 2rem;
         }
@@ -310,9 +406,39 @@
             margin-bottom: 1.5rem;
             display: inline-block;
             color: #fff;
+            text-decoration: none;
         }
 
-        .footer-links h5 {
+        .footer-about p {
+            color: #b3b3b3;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
             color: #fff;
             font-weight: 700;
             margin-bottom: 1.5rem;
@@ -320,19 +446,20 @@
             padding-bottom: 10px;
         }
 
-        .footer-links h5:after {
+        .footer-links h4:after {
             content: '';
             position: absolute;
             left: 0;
             bottom: 0;
             width: 40px;
             height: 2px;
-            background: #ff6b6b;
+            background: var(--primary-color);
         }
 
         .footer-links ul {
             list-style: none;
             padding: 0;
+            margin: 0;
         }
 
         .footer-links li {
@@ -343,47 +470,87 @@
             color: #b3b3b3;
             text-decoration: none;
             transition: all 0.3s ease;
+            display: inline-block;
         }
 
         .footer-links a:hover {
-            color: #ff6b6b;
+            color: var(--primary-color);
             padding-left: 5px;
         }
 
-        .contact-info li {
-            margin-bottom: 15px;
+        .footer-newsletter p {
+            color: #b3b3b3;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-newsletter .input-group {
+            margin-bottom: 1rem;
+        }
+
+        .footer-newsletter .form-control {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #fff;
+            height: 45px;
+        }
+
+        .footer-newsletter .form-control::placeholder {
+            color: #b3b3b3;
+        }
+
+        .footer-newsletter .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            height: 45px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: #b3b3b3;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
             display: flex;
             align-items: center;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            color: #ff6b6b;
-        }
-
-        .social-links {
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: #fff;
-            margin-right: 10px;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
             transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .social-links a:hover {
-            background: #ff6b6b;
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: #0b5ed7;
+            color: #fff;
             transform: translateY(-3px);
         }
 
-        /* Responsive adjustments */
+        /* Responsive Styles */
         @media (max-width: 991.98px) {
             .navbar-collapse {
                 background: rgba(0, 0, 0, 0.95);
@@ -400,6 +567,30 @@
             .navbar-toggler:focus {
                 box-shadow: none;
             }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1.2rem;
+            }
+
+            .search-box {
+                padding: 1.5rem;
+            }
+
+            .stats {
+                flex-direction: column;
+            }
+
+            .stat-item {
+                margin-bottom: 1.5rem;
+            }
+
+            .contact-info {
+                margin-bottom: 3rem;
+            }
         }
 
         @media (max-width: 767.98px) {
@@ -408,19 +599,19 @@
             }
             
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-            
+
             .section-title {
                 font-size: 1.8rem;
             }
-            
-            .search-box {
-                padding: 1.5rem;
+
+            .testimonial-card {
+                margin: 0 0 1.5rem;
             }
         }
 
-        /* Animation classes */
+        /* Animation Classes */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -435,6 +626,113 @@
         .animate-fade-in {
             animation: fadeInUp 0.8s ease-out forwards;
         }
+
+        /* Modal Styles */
+        .modal-content {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem;
+        }
+
+        .modal-title {
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #eee;
+            padding: 1rem 1.5rem;
+        }
+
+        .nav-tabs {
+            border-bottom: 2px solid #dee2e6;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 0;
+            position: relative;
+        }
+
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color);
+            background: transparent;
+            border: none;
+        }
+
+        .nav-tabs .nav-link.active:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.4);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
     </style>
 </head>
 <body>
@@ -448,7 +746,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
@@ -472,7 +773,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <div class="container">
             <h1 class="hero-title animate-fade-in">Find Trusted Local Service Providers</h1>
             <p class="hero-description animate-fade-in" style="animation-delay: 0.2s;">Connect with skilled professionals for all your home service needs</p>
@@ -499,6 +800,41 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="about-img">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="About Karigar" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-content">
+                        <h2>About Karigar</h2>
+                        <p>Karigar is a leading online marketplace connecting customers with trusted local service professionals. Our mission is to make it simple and convenient to find and book skilled professionals for all your home service needs.</p>
+                        <p>With Karigar, you can easily discover and hire experienced professionals for a wide range of services, from home repairs and maintenance to personal care and professional services.</p>
+                        
+                        <div class="stats">
+                            <div class="stat-item">
+                                <h3>10,000+</h3>
+                                <p>Happy Customers</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>2,500+</h3>
+                                <p>Skilled Professionals</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>50+</h3>
+                                <p>Services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Services Section -->
     <section id="services" class="py-5">
         <div class="container">
@@ -506,7 +842,7 @@
             <div class="row g-4">
                 <div class="col-md-3 col-6">
                     <div class="card service-card h-100">
-                        <img src="https://images.unsplash.com/photo-1631549916768-411329f83c2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Plumbing Service">
+                        <img src="https://superiorplumbing.ca/wp-content/uploads/2022/12/Sink-Repair.jpg?utm_source=chatgpt.com" class="card-img-top" alt="Plumbing Service">
                         <div class="card-body text-center">
                             <h5 class="card-title">Plumbing</h5>
                             <p class="card-text">Leaks, installations, and repairs</p>
@@ -516,7 +852,7 @@
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="card service-card h-100">
-                        <img src="https://images.unsplash.com/photo-1581093057302-7fe6df3d1236?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Electrical Service">
+                        <img src="https://www.schererelectric.com/blog/wp-content/uploads/2019/08/electrical-panel-with-electricians.jpg?utm_source=chatgpt.com" class="card-img-top" alt="Electrical Service">
                         <div class="card-body text-center">
                             <h5 class="card-title">Electrical</h5>
                             <p class="card-text">Wiring, fixtures, and repairs</p>
@@ -526,7 +862,7 @@
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="card service-card h-100">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" class="card-img-top" alt="Cleaning Service">
+                        <img src="https://www.masterclean-sa.com/wp-content/uploads/2023/03/2MI7aSUcBSfhx9j8z7ukwbECnMBYd0zG1679944891.jpg?utm_source=chatgpt.comvv" class="card-img-top" alt="Cleaning Service">
                         <div class="card-body text-center">
                             <h5 class="card-title">Cleaning</h5>
                             <p class="card-text">Home and office cleaning</p>
@@ -582,107 +918,196 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonial-section">
+    <section id="testimonials" class="py-5">
         <div class="container">
             <h2 class="section-title">What Our Customers Say</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"Found a great plumber within minutes. The service was excellent and the price was fair. Highly recommended!"</p>
-                        <h5 class="testimonial-author">Ali Khan</h5>
-                        <p class="testimonial-role">Homeowner, Karachi</p>
+                    <div class="testimonial-card text-center">
+                        <div class="testimonial-img">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Customer">
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Karigar made it so easy to find a reliable plumber. The service was professional and the pricing was transparent. Highly recommended!"</p>
+                        <h5 class="testimonial-author">Sarah Johnson</h5>
+                        <p class="testimonial-role">Homeowner</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"As an electrician, Karigar has helped me find consistent work. The platform is easy to use and the customers are great!"</p>
-                        <h5 class="testimonial-author">Ahmed Raza</h5>
-                        <p class="testimonial-role">Electrician, Lahore</p>
+                    <div class="testimonial-card text-center">
+                        <div class="testimonial-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Customer">
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"I've used Karigar multiple times for different services, and I'm always impressed by the quality of professionals they have on their platform."</p>
+                        <h5 class="testimonial-author">Michael Chen</h5>
+                        <p class="testimonial-role">Small Business Owner</p>
                     </div>
                 </div>
                 <div class="col-md-4 mb-4">
-                    <div class="testimonial-card">
-                        <p class="testimonial-text">"I needed a tutor for my kids and found the perfect match through Karigar. The whole process was smooth and convenient."</p>
-                        <h5 class="testimonial-author">Fatima Ahmed</h5>
-                        <p class="testimonial-role">Parent, Islamabad</p>
+                    <div class="testimonial-card text-center">
+                        <div class="testimonial-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Customer">
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="testimonial-text">"The customer service is excellent, and I love how easy it is to compare different service providers and read reviews before making a decision."</p>
+                        <h5 class="testimonial-author">Emily Rodriguez</h5>
+                        <p class="testimonial-role">Apartment Renter</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
         <div class="container">
-            <h2 class="cta-title">Ready to get started?</h2>
-            <p class="cta-description">Join thousands of satisfied customers and service providers who trust Karigar for all their service needs.</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#" class="btn btn-light btn-lg" data-bs-toggle="modal" data-bs-target="#registerModal">Sign Up Now</a>
-                <a href="#how-it-works" class="btn btn-outline-light btn-lg">Learn More</a>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="contact-info">
+                        <h3>Get In Touch</h3>
+                        <p>Have questions or need assistance? Our team is here to help you with any inquiries you may have.</p>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Our Location</h4>
+                                <p>123 Service Street, City, Country</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Number</h4>
+                                <p>+1 234 567 8900</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email Address</h4>
+                                <p>info@karigar.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="contact-form">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Your Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="footer-logo">Karigar</div>
-                    <p>Connecting customers with trusted service providers for all their needs. Fast, reliable, and hassle-free service at your fingertips.</p>
-                    <div class="social-links mt-4">
+                <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                    <a href="#" class="footer-logo">Karigar</a>
+                    <div class="footer-about">
+                        <p>Connecting customers with trusted local service professionals for all their home service needs.</p>
+                    </div>
+                    <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4">
+                <div class="col-lg-2 col-md-6 col-6 mb-4 mb-md-0">
                     <div class="footer-links">
-                        <h5>Services</h5>
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#how-it-works">How It Works</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <div class="footer-links">
+                        <h4>Services</h4>
                         <ul>
                             <li><a href="#">Plumbing</a></li>
                             <li><a href="#">Electrical</a></li>
                             <li><a href="#">Cleaning</a></li>
                             <li><a href="#">Tutoring</a></li>
-                            <li><a href="#">More Services</a></li>
+                            <li><a href="#">Carpentry</a></li>
+                            <li><a href="#">View All</a></li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4">
-                    <div class="footer-links">
-                        <h5>Company</h5>
-                        <ul>
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">How It Works</a></li>
-                            <li><a href="#">Careers</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 mb-4">
-                    <div class="footer-links">
-                        <h5>Contact Us</h5>
-                        <ul class="contact-info">
-                            <li><i class="fas fa-map-marker-alt me-2"></i> 123 Service St, Karachi, Pakistan</li>
-                            <li><i class="fas fa-phone-alt me-2"></i> +92 300 1234567</li>
-                            <li><i class="fas fa-envelope me-2"></i> info@karigar.com</li>
-                        </ul>
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to our newsletter to receive updates on new services and special offers.</p>
+                        <form class="mb-3">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your email address" required>
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-            <hr class="mt-4" style="border-color: rgba(255,255,255,0.1);">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0">&copy; 2024 Karigar. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">
-                        <a href="#" class="text-white me-3">Privacy Policy</a>
-                        <a href="#" class="text-white">Terms of Service</a>
-                    </p>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Karigar. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
             </div>
         </div>
     </footer>
@@ -698,12 +1123,12 @@
                 <div class="modal-body">
                     <form id="loginForm">
                         <div class="mb-3">
-                            <label class="form-label">Email address</label>
-                            <input type="email" class="form-control" required>
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="loginEmail" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" required>
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
                         </div>
                         <div class="mb-3 form-check">
                             <input type="checkbox" class="form-check-input" id="rememberMe">
@@ -786,7 +1211,25 @@
                                         <option value="electrical">Electrical</option>
                                         <option value="cleaning">Cleaning</option>
                                         <option value="tutoring">Tutoring</option>
+                                        <option value="carpentry">Carpentry</option>
+                                        <option value="painting">Painting</option>
+                                        <option value="ac">AC Repair</option>
+                                        <option value="pest-control">Pest Control</option>
                                     </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Years of Experience</label>
+                                    <select class="form-select" required>
+                                        <option value="">Select years of experience</option>
+                                        <option value="0-1">0-1 years</option>
+                                        <option value="1-3">1-3 years</option>
+                                        <option value="3-5">3-5 years</option>
+                                        <option value="5+">5+ years</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Service Areas</label>
+                                    <input type="text" class="form-control" placeholder="Enter areas you serve (comma separated)" required>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
@@ -795,6 +1238,10 @@
                                 <div class="mb-3">
                                     <label class="form-label">Confirm Password</label>
                                     <input type="password" class="form-control" required>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                                    <label class="form-check-label" for="termsCheck">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100">Sign Up as Service Provider</button>
                             </form>
@@ -806,43 +1253,130 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
     <!-- Bootstrap JS and dependencies -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // DOM Elements
-        const loginForm = document.getElementById('loginForm');
-        const customerRegisterForm = document.getElementById('customerRegisterForm');
-        const providerRegisterForm = document.getElementById('providerRegisterForm');
-        const searchForm = document.querySelector('.search-box form');
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
 
-        // Sample data for services
-        const services = [
-            { id: 1, name: 'Plumbing', icon: 'fa-wrench', description: 'Leaks, installations, and repairs' },
-            { id: 2, name: 'Electrical', icon: 'fa-bolt', description: 'Wiring, fixtures, and repairs' },
-            { id: 3, name: 'Cleaning', icon: 'fa-broom', description: 'Home and office cleaning' },
-            { id: 4, name: 'Tutoring', icon: 'fa-graduation-cap', description: 'Academic and skill tutoring' },
-            { id: 5, name: 'Carpentry', icon: 'fa-hammer', description: 'Furniture and woodwork' },
-            { id: 6, name: 'Painting', icon: 'fa-paint-roller', description: 'Interior and exterior painting' },
-            { id: 7, name: 'AC Repair', icon: 'fa-snowflake', description: 'AC installation and maintenance' },
-            { id: 8, name: 'Pest Control', icon: 'fa-bug', description: 'Pest removal and prevention' }
-        ];
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
 
-        // Initialize the application
+        // Form Submissions
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize tooltips
-            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            tooltipTriggerList.map(function (tooltipTriggerEl) {
-                return new bootstrap.Tooltip(tooltipTriggerEl);
+            // Login Form
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your login logic here
+                    alert('Login functionality will be implemented here');
+                });
+            }
+
+            // Customer Registration Form
+            const customerRegisterForm = document.getElementById('customerRegisterForm');
+            if (customerRegisterForm) {
+                customerRegisterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your customer registration logic here
+                    alert('Customer registration will be implemented here');
+                });
+            }
+
+            // Provider Registration Form
+            const providerRegisterForm = document.getElementById('providerRegisterForm');
+            if (providerRegisterForm) {
+                providerRegisterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your provider registration logic here
+                    alert('Service provider registration will be implemented here');
+                });
+            }
+
+            // Contact Form
+            const contactForm = document.querySelector('#contact form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Add your contact form submission logic here
+                    alert('Thank you for your message! We will get back to you soon.');
+                    this.reset();
+                });
+            }
+
+            // Newsletter Subscription
+            const newsletterForm = document.querySelector('.footer-newsletter form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    // Add your newsletter subscription logic here
+                    alert(`Thank you for subscribing with ${email}!`);
+                    this.reset();
+                });
+            }
+
+            // Search Form
+            const searchForm = document.querySelector('.search-box form');
+            if (searchForm) {
+                searchForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const service = this.querySelector('input[placeholder*="service"]').value;
+                    const location = this.querySelector('input[placeholder*="location"]').value;
+                    // Add your search logic here
+                    alert(`Searching for ${service} services in ${location}. This would show search results in a real application.`);
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                            const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                                toggle: false
+                            });
+                            bsCollapse.hide();
+                        }
+                        
+                        // Scroll to the target element
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Adjust for fixed header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
 
-            // Add animation classes on scroll
-            animateOnScroll();
-            
-            // Run on scroll
-            window.addEventListener('scroll', animateOnScroll);
-            
-            // Add active class to nav links on scroll
+            // Update active nav link on scroll
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
             
@@ -865,109 +1399,17 @@
                     }
                 });
             });
+
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
         });
 
-        // Handle login form submission
-        if (loginForm) {
-            loginForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const email = this.querySelector('input[type="email"]').value;
-                const password = this.querySelector('input[type="password"]').value;
-                
-                // In a real app, this would make an API call to authenticate the user
-                console.log('Login attempt with:', { email, password });
-                
-                // Show success message (in a real app, this would be after successful authentication)
-                alert('Login successful!');
-                
-                // Close the modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
-                modal.hide();
-            });
-        }
-
-        // Handle customer registration form submission
-        if (customerRegisterForm) {
-            customerRegisterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    name: this.querySelector('input[type="text"]').value,
-                    email: this.querySelector('input[type="email"]').value,
-                    phone: this.querySelector('input[type="tel"]').value,
-                    password: this.querySelector('input[type="password"]').value,
-                    userType: 'customer'
-                };
-                
-                // In a real app, this would make an API call to register the user
-                console.log('Customer registration:', formData);
-                
-                // Show success message
-                alert('Registration successful! You can now login with your credentials.');
-                
-                // Close the modal and open login modal
-                const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
-                const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-                
-                registerModal.hide();
-                loginModal.show();
-            });
-        }
-
-        // Handle service provider registration form submission
-        if (providerRegisterForm) {
-            providerRegisterForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    businessName: this.querySelector('input[type="text"]').value,
-                    email: this.querySelector('input[type="email"]').value,
-                    phone: this.querySelector('input[type="tel"]').value,
-                    serviceCategory: this.querySelector('select').value,
-                    password: this.querySelector('input[type="password"]').value,
-                    userType: 'provider'
-                };
-                
-                // In a real app, this would make an API call to register the service provider
-                console.log('Provider registration:', formData);
-                
-                // Show success message
-                alert('Service provider registration submitted! Our team will review your application and get back to you soon.');
-                
-                // Close the modal and open login modal
-                const registerModal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
-                const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-                
-                registerModal.hide();
-                loginModal.show();
-            });
-        }
-
-        // Handle search form submission
-        if (searchForm) {
-            searchForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const service = this.querySelector('input[placeholder*="service"]').value;
-                const location = this.querySelector('input[placeholder*="location"]').value;
-                
-                if (!service || !location) {
-                    alert('Please enter both service and location to search.');
-                    return;
-                }
-                
-                // In a real app, this would make an API call to search for service providers
-                console.log('Searching for:', { service, location });
-                
-                // Show a message (in a real app, this would show search results)
-                alert(`Searching for ${service} services in ${location}. This would show search results in a real application.`);
-            });
-        }
-
-        // Animate elements when they come into view
+        // Animation on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.service-card, .testimonial-card, .step-card, .search-box, .section-title, .hero-title, .hero-description');
+            const elements = document.querySelectorAll('.animate-on-scroll');
             
             elements.forEach(element => {
                 const elementPosition = element.getBoundingClientRect().top;
@@ -980,62 +1422,9 @@
             });
         }
 
-        // Add smooth scrolling to all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add back to top button
-        const backToTopBtn = document.createElement('button');
-        backToTopBtn.id = 'backToTop';
-        backToTopBtn.title = 'Go to top';
-        backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
-        backToTopBtn.className = 'btn btn-primary rounded-circle position-fixed';
-        backToTopBtn.style.display = 'none';
-        backToTopBtn.style.bottom = '20px';
-        backToTopBtn.style.right = '20px';
-        backToTopBtn.style.width = '50px';
-        backToTopBtn.style.height = '50px';
-        backToTopBtn.style.zIndex = '99';
-        backToTopBtn.style.opacity = '0';
-        backToTopBtn.style.transition = 'opacity 0.3s ease';
-        
-        backToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        document.body.appendChild(backToTopBtn);
-
-        // Show/hide back to top button
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                backToTopBtn.style.display = 'flex';
-                backToTopBtn.style.alignItems = 'center';
-                backToTopBtn.style.justifyContent = 'center';
-                setTimeout(() => {
-                    backToTopBtn.style.opacity = '1';
-                }, 10);
-            } else {
-                backToTopBtn.style.opacity = '0';
-                setTimeout(() => {
-                    if (window.pageYOffset <= 300) {
-                        backToTopBtn.style.display = 'none';
-                    }
-                }, 300);
-            }
-        });
+        // Run animation on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
     </script>
 </body>
 </html>
